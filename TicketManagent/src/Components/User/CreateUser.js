@@ -3,7 +3,6 @@ import { USERS, endpoints } from "../../FirebaseHelpers/ApiInterface"
 import { userForm } from "../../Helper/Extraproperties"
 import ChangeEndpoints from "../GenericComponents/ChangeEndPoint"
 import { AuthContext } from "../../Auth"
-import { auth } from "../../FirebaseHelpers/firebase-config"
 import { useNavigate } from "react-router-dom"
 
 export const CreateUser = () => {
@@ -15,8 +14,6 @@ export const CreateUser = () => {
         state.Access = []
         await endpoints.users.addDocument(state, uid);
         window.location.reload(true);
-        // sessionStorage.clear();
-        // await auth.signOut();
         navigate("/")
     }
 
