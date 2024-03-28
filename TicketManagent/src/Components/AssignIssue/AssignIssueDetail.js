@@ -139,7 +139,7 @@ export const AssignIssueDetail = ({ item }) => {
             </ul>
             <div className="flex flex-row gap-2 mx-2">
                 <Button
-                    buttonName={"Done"}
+                    buttonName={"Resolve"}
                     type={"button"}
                     onPress={doneTask}
                     disable={loading}
