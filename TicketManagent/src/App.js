@@ -11,7 +11,7 @@ import Button from "./Components/GenericComponents/Button";
 function App() {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(true)
-  console.log(toggle);
+
   return (
     <> <Auth dashboard={<Dashboard />} login={
       <div className="flex justify-center items-center h-96">

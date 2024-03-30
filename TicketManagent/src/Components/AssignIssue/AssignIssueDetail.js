@@ -21,7 +21,7 @@ export const AssignIssueDetail = ({ item }) => {
     let isAdmin = checkAdmin(currentUserAdmin.currentUser.Access)
     let isAssistant = checkAssistant(currentUserAdmin.currentUser.Access)
     let databaseQuery = undefined
-    console.log(isAdmin);
+   
     if (isAdmin) {
         var companyId = currentUserAdmin.currentUser.Access[0].CorporationId
         databaseQuery = [[companyId, "==", ACCEPTED]]

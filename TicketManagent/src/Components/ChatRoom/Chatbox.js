@@ -15,13 +15,11 @@ import { databasePath } from "../../Helper/helper";
 
 export const ChatBox = () => {
     const { tokenId, currentUserId } = useParams();
-    console.log(tokenId);
-    console.log(currentUserId);
+    
     const [messages, setMessages] = useState([]);
     const scroll = useRef();
     const path = databasePath(CHATS, tokenId);
-    console.log(tokenId);
-    console.log(currentUserId);
+   
     useEffect(() => {
         const q = query(
             collection(db, path),

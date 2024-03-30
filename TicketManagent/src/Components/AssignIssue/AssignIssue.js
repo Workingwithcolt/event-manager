@@ -61,8 +61,8 @@ export const AssignIssue = () => {
             <DataReceiver queryData={currentUserAdmin} />
         )
     } else {
-        return <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Please Create Corporation or Create User
-        </h5>
+        return <p className=" text-center flex item-center font-normal text-gray-700 dark:text-gray-400 ">
+            Please Create Corporation or Create New User Account first then if you want to apply for the Technical Support you can join Corporation
+        </p>
     }
 }

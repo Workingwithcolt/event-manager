@@ -6,7 +6,7 @@ import Button from "../GenericComponents/Button";
 
 const SendMessage = ({ scroll, path, currentUserId }) => {
     const { currentUserAdmin } = useContext(UserContext);
-    console.log(currentUserAdmin);
+    
     const [message, setMessage] = useState("");
 
     const name = currentUserAdmin?.currentUser["Full Name"]

@@ -18,7 +18,7 @@ export function SignUpWithEmail() {
     const [success, setSuccess] = useState(false);
     const navigate = useNavigate()
 
-    console.log(password);
+
     const loginWithEmailID = async () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);

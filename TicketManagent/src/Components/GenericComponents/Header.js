@@ -13,7 +13,7 @@ function Header() {
     const { pathname } = useLocation();
     const { currentUserAdmin } = useContext(UserContext);
     let isAdmin = checkAdmin(currentUserAdmin?.currentUser?.Access)
-    console.log(isAdmin);
+    
     return (
         <nav className="bg-gray-900 border-gray-200">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

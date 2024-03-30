@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export function Home() {
   const { currentUserAdmin } = useContext(UserContext);
-  console.log(currentUserAdmin);
+ 
   return (
     <section className="bg-gray-900 h-full flex justify-center items-center">
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">

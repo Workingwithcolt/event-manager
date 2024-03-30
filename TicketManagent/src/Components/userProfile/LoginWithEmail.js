@@ -34,7 +34,7 @@ export function LoginWithEmail() {
         )
     }
 
-    console.log(password);
+
     const loginWithEmailID = async () => {
         try {
             if (!(password.length > 6)) {
