@@ -11,6 +11,9 @@ import RequestedUsers from '../RequestedUser/RequestedUsers'
 import { ShowIssues } from '../Issue/ShowIssues'
 import { IssueForm } from '../Issue/IssueForm'
 import { AssignIssue } from '../AssignIssue/AssignIssue'
+import { ChatBox } from '../ChatRoom/Chatbox'
+import { LoginWithEmail } from '../userProfile/LoginWithEmail'
+import { SignUpWithEmail } from '../userProfile/SignUpWithEmail'
 
 function Routers() {
     return (
@@ -23,7 +26,18 @@ function Routers() {
 
             <Route path='/'
                 element={
-                    <LoginPage />
+                    <LoginWithEmail />
+                } />
+
+            <Route path='/signup'
+                element={
+                    <SignUpWithEmail />
+                } />
+            <Route path='/chatBox/:tokenId/:currentUserId'
+                element={
+                    <GenericBodyCard>
+                        <ChatBox />
+                    </GenericBodyCard>
                 } />
 
             <Route path='/createUser' element={

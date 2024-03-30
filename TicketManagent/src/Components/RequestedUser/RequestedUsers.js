@@ -29,7 +29,7 @@ function DataReceiver({ queryData }) {
   return (
     <section className='h-full flex flex-col bg-gray-900 text-white py-4 px-8'>
       <div className='py-4'>
-        <p className=" text-4xl font-semibold tracking-tight mt-2 mb-2 text-white">Requested Application for Technical Staff</p>
+        <p className=" text-4xl font-semibold tracking-tight mt-2 mb-2 text-white">Requested Application for Tech Support</p>
       </div>
       <div className='flex-1'>
         <DataView

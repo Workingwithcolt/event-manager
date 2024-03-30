@@ -98,6 +98,7 @@ export const DEVELOPER = "DEVELOPER";
 export const USERS = "USERS"
 export const COMPANY = "Company";
 export const ISSUE = "Issue";
+export const CHATS = "Chats"
 
 
 export var endpoints = {

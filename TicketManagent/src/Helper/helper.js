@@ -26,7 +26,7 @@ export const returnCurrentCompany = async (endpoints, uid) => {
     }
 }
 
-export const checkAdmin = (currentAcces) => {
+export const checkAdmin = (currentAcces = []) => {
     return currentAcces.some(item => item.levelID === ADMIN_USER_LEVEL_ID)
 }
 
@@ -53,3 +53,7 @@ export const blobToBase64 = async (blob) => {
         reader.readAsDataURL(blob);
     });
 };
+
+export const databasePath = (root, id) => {
+    return root + "/" + id + "/chat"
+}

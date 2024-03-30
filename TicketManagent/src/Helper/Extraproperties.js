@@ -98,8 +98,22 @@ export const propertyList = {
         name: "Document",
         type: SchemaTypes.file,
         required: true
+    },
+    password: {
+        display: "Enter Password",
+        name: "Password",
+        type: SchemaTypes.Password,
+        required: true
     }
 }
+export const emailAndPassword = [
+    {
+        item: propertyList.Email,
+    },
+    {
+        item: propertyList.password
+    }
+]
 export const Tickets = [
     {
         item: propertyList.TicketId

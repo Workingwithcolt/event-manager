@@ -8,7 +8,7 @@ import Button from "../GenericComponents/Button";
 import { UserContext } from "../Contexts/CurrentUserContext";
 import { GenericSelect } from "../GenericComponents/GenericSelect";
 import { ErrorAlert } from "../GenericComponents/ErrorAlert";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const AssignIssueDetail = ({ item }) => {
     const { currentUserAdmin } = useContext(UserContext);
@@ -17,13 +17,13 @@ export const AssignIssueDetail = ({ item }) => {
     const [loading, isLoading] = useState(false)
     const queryClient = useQueryClient();
     const navigate = useNavigate();
-    let companyId = currentUserAdmin.currentUser.Access[0].CorporationId
 
     let isAdmin = checkAdmin(currentUserAdmin.currentUser.Access)
     let isAssistant = checkAssistant(currentUserAdmin.currentUser.Access)
     let databaseQuery = undefined
- 
+    console.log(isAdmin);
     if (isAdmin) {
+        var companyId = currentUserAdmin.currentUser.Access[0].CorporationId
         databaseQuery = [[companyId, "==", ACCEPTED]]
     } else if (isAssistant) {
 
@@ -44,7 +44,7 @@ export const AssignIssueDetail = ({ item }) => {
             navigate("/home")
         } catch (e) {
             setError(e.message)
-     
+
         }
     }
 
@@ -66,32 +66,34 @@ export const AssignIssueDetail = ({ item }) => {
                     navigate("/home")
                 } catch (e) {
                     setError(e.message)
-                 
+
                 }
             } else {
                 setError("It is Already Being Assign")
             }
         } else {
             setError("please Select TechSupport To Assign")
-  
+
         }
     }
 
     const { data, error, isError, isLoading: startLoading } = useQuery({
         queryFn: async () => {
             let result = await endpoints.users.getAllDocument(databaseQuery)
-           
+
             let newResult = []
-            result.forEach((element) => {
-                return element.Access.forEach(AccessObject => {
-                    if (AccessObject.levelID === ASSISTANT_LEVEL_ID && companyId === AccessObject.CorporationId) {
-                        newResult.push({
-                            value: element,
-                            label: element['Full Name']
-                        })
-                    }
+            if (companyId) {
+                result.forEach((element) => {
+                    return element.Access.forEach(AccessObject => {
+                        if (AccessObject.levelID === ASSISTANT_LEVEL_ID && companyId === AccessObject.CorporationId) {
+                            newResult.push({
+                                value: element,
+                                label: element['Full Name']
+                            })
+                        }
+                    })
                 })
-            })
+            }
             return newResult
         }, queryKey: [ASSISTAND_LEVEL_NAME]
     })
@@ -138,6 +140,9 @@ export const AssignIssueDetail = ({ item }) => {
                 }
             </ul>
             <div className="flex flex-row gap-2 mx-2">
+                <NavLink to={`/chatBox/${item.id}/${currentUserAdmin.currentUser.id}`} type='button' className="w-full text-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none focus:ring-blue-800">
+                    Chat
+                </NavLink>
                 <Button
                     buttonName={"Resolve"}
                     type={"button"}

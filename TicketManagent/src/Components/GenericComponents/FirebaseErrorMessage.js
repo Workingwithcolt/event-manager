@@ -1,3 +1,5 @@
+import { ErrorAlert } from "./ErrorAlert";
+
 export default function ErrorFromFirebase({ error }) {
     var message = "Unexpected error " + error.code + ": " + error.message;
 
@@ -29,11 +31,14 @@ export default function ErrorFromFirebase({ error }) {
         case "auth/missing-code":
             message = "Please Enter OTP";
             break;
+        case "auth/invalid-credential":
+            message = "User Has Not Account please Create Account";
+            break;
         default:
             break;
     }
 
-    return <div className="alert alert-danger text-center" role="alert" >
-        {message}
-    </div>
+    return <ErrorAlert
+        message={message}
+    />
 }

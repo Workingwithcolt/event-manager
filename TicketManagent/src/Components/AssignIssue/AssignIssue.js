@@ -22,6 +22,8 @@ function DataReceiver({ queryData }) {
         databaseQuery = [['status', "==", PENDING]]
     } else if (isAssistant) {
         databaseQuery = [['status', "==", PENDING], ['Assign', '==', currentAuthContext.currentUserObject.uid]]
+    } else {
+        databaseQuery = [['status', '==', PENDING], ['createdBy', '==', currentAuthContext.currentUserObject.uid]]
     }
 
     const queryFunction = async () => {
@@ -37,7 +39,7 @@ function DataReceiver({ queryData }) {
     return (
         <section className='h-full flex flex-col bg-gray-900 text-white py-4 px-8'>
             <div className='py-4'>
-                <p className=" text-4xl font-extrabold tracking-tight mt-2 mb-2 text-white">Resolve Issues</p>
+                <p className=" text-4xl font-extrabold tracking-tight mt-2 mb-2 text-white">Manage Tickets</p>
             </div>
             <div className='flex-1'>
                 <DataView
