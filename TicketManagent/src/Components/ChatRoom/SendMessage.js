@@ -6,7 +6,7 @@ import Button from "../GenericComponents/Button";
 
 const SendMessage = ({ scroll, path, currentUserId }) => {
     const { currentUserAdmin } = useContext(UserContext);
-    
+
     const [message, setMessage] = useState("");
 
     const name = currentUserAdmin?.currentUser["Full Name"]
@@ -31,6 +31,7 @@ const SendMessage = ({ scroll, path, currentUserId }) => {
         <form onSubmit={sendMessage} className="flex flex-row justify-between gap-2 px-1">
             <div className="flex-1">
                 <input
+                    value={message}
                     required={true}
                     type={"text"}
                     onChange={(e) => setMessage(e.target.value)}
